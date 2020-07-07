@@ -26,7 +26,7 @@ function useStoreStateWithStoreAndSubscription<
   ST extends AnyStore,
   S extends Selector<ST>,
   E extends Equality<ST['state']>
->(store: ST, selector: S, equalityFn: E) {
+>(store: ST, selector: S, equalityFn: E): ReturnType<S> {
   const [, forceRender] = useReducer(s => s + 1, 0)
   const subscription = useMemo(() => new Subscription(store), [store])
 
