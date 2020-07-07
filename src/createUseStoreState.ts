@@ -1,6 +1,7 @@
 import { useReducer, useRef, useMemo, useDebugValue, useLayoutEffect, useEffect } from 'react'
 import Store from '@anew/store'
 import Subscription from './Subscription'
+import shallowEqual from 'src/shallowEqual'
 
 type AnyStore = Store<any, any, any, any>
 
@@ -101,7 +102,7 @@ function useStoreStateWithStoreAndSubscription<
  * @returns {Function} A `useStoreState` hook bound to the specified store.
  */
 export default function createUseStoreState<ST extends AnyStore>(store: ST) {
-  return function useStoreState<S extends Selector<ST>, E extends Equality<ST['state']>>(
+  function useStoreState<S extends Selector<ST>, E extends Equality<ST['state']>>(
     selector: S,
     equalityFn: E = refEquality as E
   ) {
@@ -115,4 +116,12 @@ export default function createUseStoreState<ST extends AnyStore>(store: ST) {
 
     return selectedState
   }
+
+  useStoreState.withSallowEqual = function useStoreStateWithShallowEqual<S extends Selector<ST>>(
+    selector: S
+  ) {
+    return useStoreState(selector, shallowEqual)
+  }
+
+  return useStoreState
 }

@@ -26,9 +26,6 @@ yarn add @anew/hooks
 import {createStore} from '@anew/store'
 import {createUseStoreState} from '@anew/hooks'
 
-// See comment below for this import
-import { shallowEqual } from '@anew/hooks'
-
 
 // Example Store
 const CounterStore = createStore({ count: 1 })
@@ -43,7 +40,7 @@ const Counter = () => {
     // ⚠️ NOTE: Use shallowEqal when returning an object
     // Otherwise the a re-render will be triggered on any
     // state change since the a new object is instanitated every time
-    const {count} = useCounterState(state => ({ count: state.count }), shallowEqual)
+    const {count} = useStoreState.withSallowEqual(state => ({ count: state.count }))
 
     return <div>{count}<div>
 }
