@@ -12,7 +12,6 @@
   ],
   "author": "Abdelrahmam Salem <abubakir1997@gmail.com>",
   "license": "MIT",
-  "private": false,
   "main": "lib/anewjs-hooks.js",
   "unpkg": "dist/anewjs-hooks.js",
   "module": "es/anewjs-hooks.js",
