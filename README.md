@@ -1,4 +1,4 @@
-# @anew/hooks
+# `@anew/hooks`
 
 > AnewJS hooks for react application
 
