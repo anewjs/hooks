@@ -1,6 +1,6 @@
 {
   "name": "@anew/hooks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AnewJS React Hooks",
   "repository": "git@github.com:anewjs/hooks.git",
   "bugs": "https://github.com/anewjs/hooks/issues",
