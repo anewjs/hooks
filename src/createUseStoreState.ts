@@ -1,9 +1,8 @@
-import { useReducer, useRef, useMemo, useDebugValue, useLayoutEffect, useEffect } from 'react'
-import Store from '@anew/store'
-import Subscription from './Subscription'
-import shallowEqual from 'src/shallowEqual'
+import { useDebugValue, useEffect, useLayoutEffect, useMemo, useReducer, useRef } from 'react'
 
-type AnyStore = Store<any, any, any, any>
+import shallowEqual from './shallowEqual'
+import Subscription from './Subscription'
+import { AnyStore } from './types'
 
 interface Selector<ST extends AnyStore> {
   (state: ST['state']): any

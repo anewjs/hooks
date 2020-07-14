@@ -1,5 +1,5 @@
 import { getBatch } from './batch'
-import Store from '@anew/store'
+import { AnyStore } from './types'
 
 // encapsulates the subscription logic for connecting a component to the redux store, as
 // well as nesting subscriptions of descendant components, so that we can ensure the
@@ -89,7 +89,7 @@ function createListenerCollection(): ListenerCollection {
   }
 }
 
-export default class Subscription<S extends Store<any, any, any, any>> {
+export default class Subscription<S extends AnyStore> {
   private unsubscribe: (() => void) | null = null
   private listeners: ListenerCollection = nullListeners
   public onStateChange?: (...args: any) => any
